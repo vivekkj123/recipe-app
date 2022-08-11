@@ -1,0 +1,12 @@
+.Navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.AccountButton{
+    background-color: #F8003F;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+}

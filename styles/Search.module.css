@@ -1,0 +1,27 @@
+.SearchInput {
+  background: linear-gradient(
+    90deg,
+    #cecece 0%,
+    rgba(255, 255, 255, 0.3) 123.87%
+  );
+  height: 100px;
+  width: 75vw;
+  border-radius: 25px;
+  border: none;
+  padding: 20px;
+  font-size: 30px;
+  outline: none;
+}
+.Search{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SearchBtn{
+  cursor: pointer;
+  background-color: #F8003F;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 15px;
+}
