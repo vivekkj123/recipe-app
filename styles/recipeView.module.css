@@ -1,0 +1,21 @@
+.RecipePage{
+    font-size: 18px;
+    padding: 0 10vw;
+}
+.RecipeImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 32vw;
+  aspect-ratio: 1;
+}
+.RecipeTitle {
+  font-size: 8vmin;
+  font-weight: bolder;
+}
+.RecipeAuthorText {
+  color: #d0bfbf;
+}
+.RecipeAuthorText > span {
+  font-weight: 900;
+}
