@@ -1,5 +1,6 @@
 .RecipeCard{
     display: flex;
+    cursor: pointer;
     align-items: flex-end;
     padding: 25px;
     width: 390px;
