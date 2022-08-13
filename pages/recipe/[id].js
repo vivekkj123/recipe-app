@@ -1,4 +1,5 @@
 import { doc, getDoc } from "firebase/firestore";
+import Image from "next/image";
 import NavBar from "../../components/NavBar";
 import { db } from "../../src/firebase";
 import styles from "../../styles/recipeView.module.css";
@@ -13,7 +14,10 @@ const RecipePage = (props) => {
           Recipe Added by: <span>{props.author}</span>
         </p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
+          layout="responsive"
+          width={150}
+          height={150}
           className={styles.RecipeImage}
           alt={props.title}
           src={props.imageLink}

@@ -1,12 +1,21 @@
 import { getCookie } from "cookies-next";
-import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
-import Router  from "next/router";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  Timestamp,
+} from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Router from "next/router";
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import { db } from "../src/firebase";
+import { db, storage } from "../src/firebase";
 import styles from "../styles/createRecipe.module.css";
 
 const CreateRecipe = () => {
+  const [ImageasFile, setImageasFile] = useState();
   const [FormData, setFormData] = useState({
     author: "",
     title: "",
@@ -20,11 +29,20 @@ const CreateRecipe = () => {
       setFormData({ ...FormData, author: author.data().name });
     });
   }, []);
-  console.log(FormData);
   let AddRecipe = (e) => {
     e.preventDefault();
-    addDoc(collection(db, "recipes"), FormData).then(() => {
-      Router.push("/");
+    let storageRef = ref(storage, `files/${Date.now()}-${ImageasFile.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, ImageasFile);
+    uploadTask.then(() => {
+      getDownloadURL(storageRef).then((imageLink) => {
+        setFormData({ ...FormData, imagelink: imageLink });
+        addDoc(collection(db, "recipes"), {
+          ...FormData,
+          imagelink: imageLink,
+        }).then(() => {
+          Router.push("/");
+        });
+      });
     });
   };
   return (
@@ -58,17 +76,16 @@ const CreateRecipe = () => {
             name=""
             id=""
           />
+          <label>Upload Recipe Image</label>
           <input
-            value={FormData.imagelink}
-            onChange={(e) =>
-              setFormData({ ...FormData, imagelink: e.target.value })
-            }
-            type="url"
             required
-            className={styles.LoginInput}
-            placeholder="Image Link"
-            name=""
-            id=""
+            className={styles.fileUpload}
+            onChange={(e) => {
+              setImageasFile(e.target.files[0]);
+            }}
+            type="file"
+            name="recipeImage"
+            accept="image/png, image/jpeg, image/jpg"
           />
           <textarea
             value={FormData.howToCook}

@@ -45,3 +45,11 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.Button[disabled]{
+  background-color: grey;
+  cursor: auto;
+}
+.fileUpload{
+  height: 30px;
+  padding: 20px;
+}
