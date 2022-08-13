@@ -24,14 +24,8 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <Search />
+      <Search Recipes={Recipes} TempRecipes={TempRecipes} setTempRecipes={setTempRecipes}/>
       <h1>Recipes</h1>
-      <div className={styles.RecipeGallery}>
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-      </div>
       <RecipeGallery recipes={TempRecipes} />
     </div>
   );
