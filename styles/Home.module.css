@@ -1,4 +1,6 @@
 .RecipeGallery{
+    /* height: 100%; */
+    min-height: 40vh;
     display: flex;
     flex-wrap: wrap;
 }
