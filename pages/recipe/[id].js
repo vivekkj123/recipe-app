@@ -14,14 +14,15 @@ const RecipePage = (props) => {
           Recipe Added by: <span>{props.author}</span>
         </p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <Image
-          layout="responsive"
-          width={150}
-          height={150}
-          className={styles.RecipeImage}
-          alt={props.title}
-          src={props.imageLink}
-        />
+        <div className={styles.RecipeImage}>
+          <Image
+            layout="intrinsic"
+            width={400}
+            height={400}
+            alt={props.title}
+            src={props.imageLink}
+          />
+        </div>
         <h2>Ingredients</h2>
         <p>{props.ingredients}</p>
         <h2>Steps to prepare </h2>
