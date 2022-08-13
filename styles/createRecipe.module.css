@@ -1,0 +1,47 @@
+.createRecipe {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin: 40px 5px;
+  padding: 30px;
+  background: #ef7373;
+  width: 30em;
+  height: 600px;
+  border-radius: 50px;
+}
+.LoginInput {
+  width: 75%;
+  margin: 20px auto;
+  height: 75px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+}
+.ExtendedInput {
+  width: 75%;
+  margin: 20px auto;
+  /* height: 75px; */
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+}
+.Button {
+  width: 120px;
+  padding: 15px;
+  outline: none;
+  background: #f8003f;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
